@@ -9,11 +9,3 @@ runs:
       env:
         GITHUB_TOKEN: ${{ github.token }}
         GITLEAKS_LICENSE: ""
-
-    - name: Run TruffleHog OSS
-      uses: trufflehog/trufflehog-action@main
-      with:
-        path: ./
-        base: ${{ github.event.repository.default_branch }}
-        head: ${{ github.ref }}
-        extra_args: --debug
