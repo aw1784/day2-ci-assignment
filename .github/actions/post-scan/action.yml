@@ -1,13 +1,13 @@
 name: 'Security Post-Scan'
-description: 'Runs Trivy to scan built artifacts or filesystem for security vulnerabilities.'
+description: 'Runs Trivy to scan built artifacts or extracted package for vulnerabilities.'
 
 inputs:
   scan-type:
-    description: 'Type of Trivy scan (fs, image, etc.)'
+    description: 'Type of Trivy scan'
     required: true
     default: 'fs'
   scan-target:
-    description: 'Target path or image name to scan'
+    description: 'Target path to scan'
     required: true
     default: '.'
 
