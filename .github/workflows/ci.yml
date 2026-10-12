@@ -47,6 +47,10 @@ jobs:
 
       - name: Security Pre-Scan
         uses: ./.github/actions/pre-scan
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONATQUBE_SECRET }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
