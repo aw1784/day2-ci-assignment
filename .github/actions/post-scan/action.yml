@@ -1,0 +1,24 @@
+name: 'Security Post-Scan'
+description: 'Runs Trivy to scan built artifacts or filesystem for security vulnerabilities.'
+
+inputs:
+  scan-type:
+    description: 'Type of Trivy scan (fs, image, etc.)'
+    required: true
+    default: 'fs'
+  scan-target:
+    description: 'Target path or image name to scan'
+    required: true
+    default: '.'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Trivy Vulnerability Scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: ${{ inputs.scan-type }}
+        scan-target: ${{ inputs.scan-target }}
+        format: 'table'
+        exit-code: '1'
+        severity: 'CRITICAL,HIGH'

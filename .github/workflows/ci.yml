@@ -45,6 +45,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Security Pre-Scan
+        uses: ./.github/actions/pre-scan
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -121,6 +124,12 @@ jobs:
         run: |
           tar -xzvf extracted-dist/*.tar.gz
           python3 -c "from temperature import celsius_to_fahrenheit as c; assert c(100) == 212; print('Package OK')"
+
+      - name: Security Post-Scan
+        uses: ./.github/actions/post-scan
+        with:
+          scan-type: 'fs'
+          scan-target: '.'
 
   pr-comment:
     needs: package
