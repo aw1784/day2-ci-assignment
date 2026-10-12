@@ -1,1 +1,10 @@
 sonar-project.properties
+[allowlist]
+    description = "Global allowlist for files and paths"
+    paths = [
+        '''node_modules/''',
+        '''sonar-project.properties''',
+        '''tests/fixtures/''',
+        '''secret\.yaml$''',
+        '''path/to/specific/file\.txt'''
+    ]
