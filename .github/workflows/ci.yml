@@ -50,7 +50,7 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
-          SONAR_TOKEN: ${{ secrets.SONATQUBE_SECRET }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
