@@ -114,6 +114,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      # نحتاج سحب الكود هنا حتى يتمكن من قراءة مجلد الـ actions المحلية للـ post-scan
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Download Package Artifact
         uses: actions/download-artifact@v4
         with:
