@@ -50,6 +50,7 @@ jobs:
         with:
           python-version: ${{ inputs.python-version || '3.13' }}
           cache: 'pip'
+          cache-dependency-path: requirements-dev.txt
 
       - name: Install Dependencies
         run: pip install -r requirements-dev.txt
