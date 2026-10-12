@@ -15,10 +15,10 @@ runs:
   using: "composite"
   steps:
     - name: Run Trivy Vulnerability Scanner
-      uses: aquasecurity/trivy-action@master
+      uses: aquasecurity/trivy-action@c03d123cb480c08c69b054af418ea5e69fe6e57e # master
       with:
         scan-type: ${{ inputs.scan-type }}
-        scan-target: ${{ inputs.scan-target }}
+        scan-ref: ${{ inputs.scan-target }}
         format: 'table'
         exit-code: '1'
         severity: 'CRITICAL,HIGH'

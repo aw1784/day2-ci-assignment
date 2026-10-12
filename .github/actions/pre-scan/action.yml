@@ -5,22 +5,22 @@ runs:
   using: "composite"
   steps:
     - name: Run Gitleaks Security Scan
-      uses: gitleaks/gitleaks-action@v2
+      uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
       env:
         GITHUB_TOKEN: ${{ github.token }}
         GITLEAKS_LICENSE: ""
 
     - name: Run TruffleHog OSS
-      uses: trufflesecurity/trufflehog@main
+      uses: trufflesecurity/trufflehog@3bcf19f51e91a9655d84ddb623728c7620be482a # main
       with:
         path: ./
         extra_args: --debug
 
     - name: Run Trivy Filesystem Scan
-      uses: aquasecurity/trivy-action@master
+      uses: aquasecurity/trivy-action@c03d123cb480c08c69b054af418ea5e69fe6e57e # master
       with:
         scan-type: 'fs'
-        scan-target: '.'
+        scan-ref: '.'
         format: 'table'
         exit-code: '1'
         severity: 'CRITICAL,HIGH'
